@@ -8,6 +8,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
 
+    @ParameterizedTest(name = "{0} - {1}")
+    @CsvSource({
+            "1-3 a: abcde, true",
+            "1-3 b: cdefg, false",
+            "2-9 c: ccccccccc, false"
+    })
+    void testPart2Validation(String input, boolean isValid) {
+        assertEquals(isValid, Solution.validatePart2(Password.fromString(input)));
+    }
+
     @ParameterizedTest(name = "{0} - Part 1: {1} | Part 2: {2}")
     @CsvSource({
             "sample, 2, skip",

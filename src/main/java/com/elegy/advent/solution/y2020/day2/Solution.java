@@ -42,16 +42,19 @@ public class Solution extends AbstractSolution {
     protected String part2() {
         int valid = 0;
         for (Password password : passwords) {
-            Policy policy = password.getPolicy();
-            String secret = password.getSecret();
-            if (secret.charAt(policy.getMin() - 1) == policy.getCharacter()) {
-                if (secret.charAt(policy.getMax() - 1) != policy.getCharacter()) {
-                    ++valid;
-                }
-            } else if (secret.charAt(policy.getMax() - 1) == policy.getCharacter()) {
+            if (validatePart2(password)) {
                 ++valid;
             }
         }
         return String.valueOf(valid);
+    }
+
+    protected static boolean validatePart2(Password password) {
+        Policy policy = password.getPolicy();
+        String secret = password.getSecret();
+        if (secret.charAt(policy.getMin() - 1) == policy.getCharacter()) {
+            return secret.charAt(policy.getMax() - 1) != policy.getCharacter();
+        }
+        return secret.charAt(policy.getMax() - 1) == policy.getCharacter();
     }
 }
