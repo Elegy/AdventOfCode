@@ -1,7 +1,7 @@
-package com.elegy.advent.solution.y2020;
+package com.elegy.advent.solution.y2020.day1;
 
 import com.elegy.advent.input.PuzzleInput;
-import com.elegy.advent.solution.Day;
+import com.elegy.advent.solution.AbstractSolution;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -9,11 +9,11 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class Day1 extends Day {
+public class Solution extends AbstractSolution {
 
     private Set<Integer> values;
 
-    Day1(PuzzleInput input) {
+    Solution(PuzzleInput input) {
         try {
             values = Files.readAllLines(Paths.get(input.toString())).stream()
                     .map(Integer::valueOf)

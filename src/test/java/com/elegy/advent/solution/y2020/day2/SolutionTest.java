@@ -1,4 +1,4 @@
-package com.elegy.advent.solution.y2020;
+package com.elegy.advent.solution.y2020.day2;
 
 import com.elegy.advent.input.PuzzleInput;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Day2Test {
+class SolutionTest {
 
     @ParameterizedTest(name = "{0} - Part 1: {1} | Part 2: {2}")
     @CsvSource({
@@ -14,12 +14,7 @@ class Day2Test {
             "input, 572, 306"
     })
     void solve(String filename, String part1, String part2) {
-        PuzzleInput input = PuzzleInput.builder()
-                .year(2020)
-                .day(2)
-                .file(filename)
-                .build();
-        Day2 solution = new Day2(input);
+        Solution solution = new Solution(new PuzzleInput(2020, 2, filename));
         if (!part1.equals("skip")) {
             assertEquals(part1, solution.part1());
         }

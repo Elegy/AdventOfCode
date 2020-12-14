@@ -1,6 +1,6 @@
 package com.elegy.advent.solution;
 
-public abstract class Day {
+public abstract class AbstractSolution {
 
     public final void solve() {
         System.out.println("Part 1 Solution: " + part1());

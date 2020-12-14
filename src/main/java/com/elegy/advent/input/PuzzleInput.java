@@ -1,17 +1,25 @@
 package com.elegy.advent.input;
 
-import lombok.Builder;
 import lombok.Value;
 
 @Value
-@Builder
 public class PuzzleInput {
+
+    private static final String DEFAULT = "input";
 
     private int year;
     private int day;
+    private String file;
 
-    @Builder.Default
-    private String file = "input";
+    public PuzzleInput(int year, int day) {
+        this(year, day, DEFAULT);
+    }
+
+    public PuzzleInput(int year, int day, String file) {
+        this.year = year;
+        this.day = day;
+        this.file = file;
+    }
 
     @Override
     public String toString() {
